@@ -4,7 +4,7 @@ jobs:
     steps:
       - checkout
       - python/dist
-      - run: pip install twine && twine upload
+      - run: pip install twine pytest && twine upload
 orbs:
   python: circleci/python@1.0.0
 version: 2.1
