@@ -1,21 +1,18 @@
-version: 2.1
-
-orbs:
-  python: circleci/python@0.2.1
-
 jobs:
-  build-and-test:
+  publish:
     executor: python/default
     steps:
       - checkout
-      - python/load-cache
-      - python/install-deps
-      - python/save-cache
-      - run:
-          command: ./manage.py test
-          name: Test
-
+      - python/dist
+      - run: pip install twine && twine upload
+orbs:
+  python: circleci/python@1.0.0
+version: 2.1
 workflows:
   main:
     jobs:
-      - build-and-test
+      - python/test:
+          args: '--dev'
+          pkg-manager: pipenv
+          test-tool: pytest
+      - publish
