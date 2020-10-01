@@ -4,6 +4,11 @@ jobs:
     steps:
       - checkout
       - python/dist
+      - python/install-packages:
+        pkg-manager: pip
+      - python/install-packages:
+        pip-dependency-file: requirements_dev.txt
+        pkg-manager: pip
       - run: pip install twine pytest && twine upload
 orbs:
   python: circleci/python@1.0.0
@@ -12,8 +17,7 @@ workflows:
   main:
     jobs:
       - python/test:
-          args: '--dev'
-          pip-dependency-file: requirements_dev.txt
+          args: pytest
           pkg-manager: pip
           test-tool: pytest
       - publish
