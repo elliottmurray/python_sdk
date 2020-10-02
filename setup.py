@@ -3,6 +3,7 @@ import platform
 import sys
 
 import setuptools
+from setuptools.command.install import install
 
 
 here = os.path.abspath(os.path.dirname(__file__))
