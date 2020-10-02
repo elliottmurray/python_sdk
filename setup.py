@@ -23,7 +23,7 @@ dependencies = [
 
 setuptools.setup(
     name="open-analytics-elliottmurray", # Replace with your own username
-    vversion=about['__version__'],
+    version=about['__version__'],
     author="Elliott Murray",
     author_email="elliottmurray@gmail.com",
     description="Our stats collector for python",

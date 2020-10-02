@@ -80,7 +80,7 @@ jobs:
             . venv/bin/activate
             make test
       - run:
-          name: Smoke Test Install 
+          name: Smoke Test Install
           command: |
             python --version
             sudo pip3 install circleci
@@ -117,7 +117,7 @@ jobs:
           name: init .pypirc
           command: |
             echo -e "[pypi]" >> ~/.pypirc
-            echo -e "username = levlaz" >> ~/.pypirc
+            echo -e "username = elliottmurray" >> ~/.pypirc
             echo -e "password = $PYPI_PASSWORD" >> ~/.pypirc
       - run:
           name: create packages
