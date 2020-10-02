@@ -15,6 +15,8 @@ with open(os.path.join(here, "open-analytics", "__version__.py")) as f:
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
+def _version():
+    return about['__version__']
 
 class VerifyVersionCommand(install):
     """Custom command to verify that the git tag matches our version"""
@@ -23,9 +25,9 @@ class VerifyVersionCommand(install):
     def run(self):
         tag = os.getenv('CIRCLE_TAG')
 
-        if tag != VERSION:
+        if tag != _version():
             info = "Git tag: {0} does not match the version of this app: {1}".format(
-                tag, VERSION
+                tag, _version()
             )
             sys.exit(info)
 
@@ -37,7 +39,7 @@ dependencies = [
 
 setuptools.setup(
     name="open-analytics-elliottmurray", # Replace with your own username
-    version=about['__version__'],
+    version=_version(),
     author="Elliott Murray",
     author_email="elliottmurray@gmail.com",
     description="Our stats collector for python",
