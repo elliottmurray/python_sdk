@@ -11,7 +11,7 @@ clean:
 	rm -rf dist/*
 
 dev:
-	pip install -r requirements-dev.txt
+	pip install -r requirements_dev.txt
 	pip install -e .
 
 docs:
