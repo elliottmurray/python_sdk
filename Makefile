@@ -1,39 +1,26 @@
+.PHONY: help clean dev docs package test
 
 help:
-	@echo ""
-	@echo "  clean      to clear build and distribution directories"
-	@echo "  deps       to install the required files for development"
-	@echo "  package    to create a distribution package in /dist/"
-	@echo "  release    to perform a release build, including deps, test, and package targets"
-	@echo "  test       to run all tests"
-	@echo ""
+	@echo "This project assumes that an active Python virtualenv is present."
+	@echo "The following make targets are available:"
+	@echo "	 dev 	install all deps for dev env"
+	@echo "  docs	create pydocs for all relveant modules"
+	@echo "	 test	run all tests with coverage"
 
-
-.PHONY: release
-release: deps test package
-
-
-.PHONY: clean
 clean:
-	rm -rf build
-	rm -rf dist
-	rm -rf open-analytics/bin
+	rm -rf dist/*
 
+dev:
+	pip install -r requirements-dev.txt
+	pip install -e .
 
-.PHONY: deps
-deps:
-	pip install -r requirements_dev.txt -e .
+docs:
+	$(MAKE) -C docs html
 
-
-.PHONY: package
 package:
 	python setup.py sdist
+	python setup.py bdist_wheel
 
-
-.PHONY: test
-test: deps
-	flake8
-	pydocstyle pact
-	coverage erase
-	pytest
-	coverage report -m --fail-under=100
+test:
+	coverage run -m pytest
+	coverage html

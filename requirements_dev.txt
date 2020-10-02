@@ -5,3 +5,4 @@ pycodestyle==2.6.0
 pydocstyle==5.1.1
 wheel==0.35.1
 requests==2.24.0
+twine
