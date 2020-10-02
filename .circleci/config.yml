@@ -53,8 +53,6 @@ jobs:
           command: |
             . venv/bin/activate
             make test
-      - store_artifacts:
-          path: htmlcov/
   test-python-install:
     parameters:
       version:
