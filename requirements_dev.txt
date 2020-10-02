@@ -1,8 +1,9 @@
 flake8==3.8.3
 mock==2.0.0
-pytest==4.6.11
+pytest==6.1.0
 pycodestyle==2.6.0
 pydocstyle==5.1.1
 wheel==0.35.1
 requests==2.24.0
 twine
+coverage==5.3
