@@ -9,7 +9,7 @@ from setuptools.command.install import install
 here = os.path.abspath(os.path.dirname(__file__))
 
 about = {}
-with open(os.path.join(here, "open-analytics", "__version__.py")) as f:
+with open(os.path.join(here, "open_analytics", "__version__.py")) as f:
     exec(f.read(), about)
 
 with open("README.md", "r") as fh:
