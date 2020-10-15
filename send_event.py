@@ -1,17 +1,12 @@
 #!python
 
-from open_analytics.open_analytics import *
-import sys
+import open_analytics
+import time
 
-if(len(sys.argv) < 2):
-    print("Need a project id")
-    exit(-1)
 
-project_id = str(sys.argv[1])
+open_analytics.install_start_event(4, 'pip')
 
-print(f'Sending project event {project_id}')
+time.sleep(3)
 
-send_event(project_id)
-
-print(f'sent event')
+open_analytics.install_end_event(4, 'pip')
 
