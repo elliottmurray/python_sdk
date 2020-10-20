@@ -8,7 +8,7 @@ import requests
 import pkg_resources
 import uuid
 
-DEFAULT_ENDPOINT = 'https://open-analytics-capture-2lcatg5vxq-ew.a.run.app/capture'
+DEFAULT_ENDPOINT = 'https://astut.io/capture'
 INSTALL = 'install'
 START = 'start'
 END = 'end'
