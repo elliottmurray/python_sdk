@@ -5,7 +5,8 @@ workflows:
       - build:
           filters:
             tags:
-              only: /.*/
+              only: /^v(\d*)\.(\d*)\.(\d*)*/
+              # only: /.*/
       - test-python-install:
           version: "3.5"
           requires:
