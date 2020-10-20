@@ -1,3 +1,3 @@
 """Open Analytics version info."""
 
-__version__ = '0.0.2'
+__version__ = '0.0.dev2'
