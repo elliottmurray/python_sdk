@@ -16,8 +16,6 @@ workflows:
           requires:
             - build
       - deploy:
-          requires:
-            - build
           filters:
             tags:
               only: /^v(\d*)\.(\d*)\.(\d*)(.*)/
