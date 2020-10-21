@@ -2,13 +2,7 @@ version: 2.1
 workflows:
   build_and_deploy:
     jobs:
-      - build:
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^v(\d*)\.(\d*)\.(\d*)(.*)/
-              # only: /.*/
+      - build
       - test-python-install:
           version: "3.5"
           requires:
