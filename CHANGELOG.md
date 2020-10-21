@@ -1,4 +1,9 @@
 ### 0.0.1-preview-3
+  * f6589d5 - more tags (Elliott Murray, Wed Oct 21 13:54:13 2020 +0100)
+  * 86dc906 - chore: Releasing version 0.0.1-preview-3 (Elliott Murray, Tue Oct 20 23:25:59 2020 +0100)
+  * 3c92bb1 - chore: Releasing version 0.0.1-preview-3 (Elliott Murray, Tue Oct 20 23:25:32 2020 +0100)
+  * dad9e5b - chore: Releasing version 0.0.1-preview-2 (Elliott Murray, Tue Oct 20 23:18:04 2020 +0100)
+### 0.0.1-preview-3
   * 3c92bb1 - chore: Releasing version 0.0.1-preview-3 (Elliott Murray, Tue Oct 20 23:25:32 2020 +0100)
   * dad9e5b - chore: Releasing version 0.0.1-preview-2 (Elliott Murray, Tue Oct 20 23:18:04 2020 +0100)
 ### 0.0.1-preview-3
