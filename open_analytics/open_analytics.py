@@ -42,6 +42,10 @@ def install_start_event(project_id, package_name, **kwargs):
     return r
 
 
+def calculate_ci():
+    return 1
+
+
 def install_end_event(project_id, package_name, **kwargs):
     project_id = str(project_id)  # need to make this an int maybe?
     print("Sending {}".format(project_id))
@@ -62,6 +66,7 @@ def install_end_event(project_id, package_name, **kwargs):
         "language_version": sys.version.split()[0],
         "package_name": package_name,
         "package_version": version,
+        "ci": calculate_ci(),
         "metadata": {
             "ruby_version": kwargs.get('PACT_STANDALONE_VERSION', None),
         },

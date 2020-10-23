@@ -11,3 +11,4 @@ six==1.15.0
 toml==0.10.1
 zipp==1.2.0
 twine
+mock==3.0.5
