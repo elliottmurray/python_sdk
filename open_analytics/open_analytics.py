@@ -8,6 +8,8 @@ import requests
 import pkg_resources
 import uuid
 
+from open_analytics.ci_matcher import detect_ci
+
 DEFAULT_ENDPOINT = 'https://astut.io/capture'
 INSTALL = 'install'
 START = 'start'
@@ -24,11 +26,14 @@ def install_start_event(project_id, package_name, **kwargs):
     if(version is None):
         version = pkg_resources.get_distribution(package_name).version
 
+    ci = detect_ci()
+
     event = {
         "project_id": project_id,
         "event_type": INSTALL,
         "event_subtype": START,
         "uuid": UUID,
+        "ci": ci,
         "platform": determine_platform(),
         "language": "python",
         "language_version": sys.version.split()[0],
@@ -40,10 +45,6 @@ def install_start_event(project_id, package_name, **kwargs):
     }
     r = requests.post(endpoint, json=event)
     return r
-
-
-def calculate_ci():
-    return 1
 
 
 def install_end_event(project_id, package_name, **kwargs):
@@ -80,8 +81,8 @@ def determine_platform():
     target_platform = platform.platform().lower()
     if 'darwin' in target_platform or 'macos' in target_platform:
         target_platform = 'osx'
-    elif 'linux' in target_platform and IS_64:
-        target_platform = 'linux-x86_64'
+    # elif 'linux' in target_platform and IS_64:
+    #     target_platform = 'linux-x86_64'
     elif 'linux' in target_platform:
         target_platform = 'linux-x86'
     elif 'windows' in target_platform:
