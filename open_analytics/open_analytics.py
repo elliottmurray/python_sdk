@@ -33,7 +33,7 @@ def install_start_event(project_id, package_name, **kwargs):
         "event_type": INSTALL,
         "event_subtype": START,
         "uuid": UUID,
-        "ci": ci,
+        "ci": ci.value,
         "platform": determine_platform(),
         "language": "python",
         "language_version": sys.version.split()[0],
@@ -55,6 +55,7 @@ def install_end_event(project_id, package_name, **kwargs):
     version = kwargs.get('version')
     if(version is None):
         version = pkg_resources.get_distribution(package_name).version
+    ci = detect_ci()
 
     event = {
         "project_id": project_id,
@@ -67,7 +68,7 @@ def install_end_event(project_id, package_name, **kwargs):
         "language_version": sys.version.split()[0],
         "package_name": package_name,
         "package_version": version,
-        "ci": calculate_ci(),
+        "ci": ci.value,
         "metadata": {
             "ruby_version": kwargs.get('PACT_STANDALONE_VERSION', None),
         },
